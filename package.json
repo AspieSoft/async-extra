@@ -1,6 +1,6 @@
 {
   "name": "async-extra",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Some additional functions to advance the capabilities of asynchronous code in javascript.",
   "license": "MIT",
   "author": "AspieSoft",
@@ -12,6 +12,7 @@
   "keywords": [
     "async",
     "sync",
+    "extra",
     "js",
     "javascript",
     "nodejs"
