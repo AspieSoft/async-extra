@@ -1,0 +1,19 @@
+{
+  "name": "async-extra",
+  "version": "0.1.0",
+  "description": "Some additional functions to advance the capabilities of asynchronous code in javascript.",
+  "license": "MIT",
+  "author": "AspieSoft",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aspiesoft/synchronous-async.git"
+  },
+  "main": "index.js",
+  "keywords": [
+    "async",
+    "sync",
+    "js",
+    "javascript",
+    "nodejs"
+  ]
+}
