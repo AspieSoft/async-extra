@@ -73,6 +73,18 @@ async function myFunction(){
     operation.setOptions({timeout: 3000, checkInterval: 5});
     // timeout is the number of milliseconds before the function gives up waiting for a result.
     // checkInterval is the number of milliseconds to wait between checking if the result is there yet.
+
+    // you can also set the results to use an object type (only works when you first create the operation)
+    operation = asyncExtra.function({resultObject: true}); // results will output {0: result1, 1: result2} instead of [result1, result2]
+
+    // you can get the first available result, and skip waiting for more results
+    result = await operation.firstResult(); // output: {result, index, results, finished, unfinished}
+
+    // you can get a result at a specific index
+    result = await operation.resultIndex(index); // output: {result, index}
+
+    // you can add a function at a specific index
+    operation.addIndex(index, callback);
 }
 
 // other methods

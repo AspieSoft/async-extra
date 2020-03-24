@@ -9,6 +9,7 @@ function asyncFunction(){
 
     if(arguments && arguments.length > 0){
         if(typeof arguments[0] === 'object' && typeof arguments[0] !== 'function'){Object.assign(options, arguments[0]);}
+        if(options.resultObject){results = {};}
         funcCount = arguments.length;
         forEach(arguments, async (func, i) => {
             if(typeof func === 'function'){results[i] = await func();}
@@ -32,6 +33,14 @@ function asyncFunction(){
         });
     }
 
+    function addFunctionIndex(index, callback){
+        funcCount++;
+        (async () => {
+            results[index] = await callback();
+            functionsRan++;
+        })();
+    }
+
     function onFinish(callback){
         return waitForValue(() => functionsRan >= funcCount, options.timeout, options.checkInterval).then(() => {
             const finished = functionsRan >= funcCount;
@@ -41,6 +50,12 @@ function asyncFunction(){
                 });
             }return {results, finished, unfinished: funcCount-functionsRan};
         });
+    }
+
+    async function wait(){
+        await waitForValue(() => functionsRan >= funcCount, options.timeout, options.checkInterval);
+        if(functionsRan < funcCount){return false;}
+        return funcCount-functionsRan;
     }
 
     async function getResult(){
@@ -54,19 +69,35 @@ function asyncFunction(){
         return {results, finished, unfinished: funcCount-functionsRan};
     }
 
-    async function wait(){
-        await waitForValue(() => functionsRan >= funcCount, options.timeout, options.checkInterval);
-        if(functionsRan < funcCount){return false;}
-        return funcCount-functionsRan;
+    function getFirstResult(){
+        return waitForValue(() => functionsRan >= 1, options.timeout, options.checkInterval).then(() => {
+            const finished = functionsRan >= funcCount;
+            let result = undefined; let index = false;
+            forEach(results, (r, i) => {
+                if(result === undefined && r !== undefined){
+                    result = r; index = i;
+                }
+            });
+            return {result, index, results, finished, unfinished: funcCount-functionsRan};
+        });
+    }
+
+    function getResultIndex(index = 0){
+        return waitForValue(() => results[index] !== undefined, options.timeout, options.checkInterval).then(() => {
+            return {result: results[index], index};
+        });
     }
 
     return {
         options: setOptions,
         add: addFunction,
+        addIndex: addFunctionIndex,
         onFinish: onFinish,
-        result: getResult,
         wait: wait,
+        result: getResult,
         resultSync: getResultSync,
+        firstResult: getFirstResult,
+        resultIndex: getResultIndex,
     };
 }
 
@@ -116,13 +147,14 @@ function getObjType(obj){
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 async function waitForValue(value, timeout = 10000, checkInterval = 10){
+    if(checkInterval < 1){checkInterval = 1;}
     if(typeof value === 'function'){
         if(value()){value();}
         let loops = 0;
         while(!value()){
             await sleep(checkInterval);
             loops++;
-            if(loops >= timeout / checkInterval){break;}
+            if(timeout !== false && loops >= timeout / checkInterval){break;}
         }
         return value();
     }
