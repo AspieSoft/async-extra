@@ -1,12 +1,12 @@
 {
   "name": "async-extra",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Some additional functions to advance the capabilities of asynchronous code in javascript.",
   "license": "MIT",
   "author": "AspieSoft",
   "repository": {
     "type": "git",
-    "url": "git://github.com/aspiesoft/synchronous-async.git"
+    "url": "git://github.com/aspiesoft/async-extra.git"
   },
   "main": "index.js",
   "keywords": [
@@ -19,6 +19,7 @@
     "async loop",
     "js",
     "javascript",
-    "nodejs"
+    "nodejs",
+    "synchronous-async"
   ]
 }

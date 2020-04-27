@@ -1,11 +1,13 @@
 ## Async Extra
 
 ![npm](https://img.shields.io/npm/v/async-extra)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/async-extra)
 ![GitHub top language](https://img.shields.io/github/languages/top/aspiesoft/async-extra)
 ![NPM](https://img.shields.io/npm/l/async-extra)
 
+![npm](https://img.shields.io/npm/dw/async-extra)
+![npm](https://img.shields.io/npm/dm/async-extra)
 ![GitHub last commit](https://img.shields.io/github/last-commit/aspiesoft/async-extra)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/aspiesoft/async-extra)
 
 [![paypal](https://img.shields.io/badge/buy%20me%20a%20coffee-paypal-blue)](https://buymeacoffee.aspiesoft.com/)
 
@@ -104,5 +106,4 @@ await asyncExtra.sleep(ms);
 let value = false;
 // set value in async function...
 await asyncExtra.waitForValue(() => value, timeout, checkInterval);
-
 ```
