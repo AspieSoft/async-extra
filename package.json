@@ -1,6 +1,6 @@
 {
-  "name": "async-extra",
-  "version": "0.2.2",
+  "name": "@aspiesoft/async-extra",
+  "version": "0.2.3",
   "description": "Some additional functions to advance the capabilities of asynchronous code in javascript.",
   "license": "MIT",
   "author": "AspieSoft",
@@ -21,5 +21,8 @@
     "javascript",
     "nodejs",
     "synchronous-async"
-  ]
+  ],
+  "devDependencies": {
+    "miniforge-js": "^0.2.4"
+  }
 }

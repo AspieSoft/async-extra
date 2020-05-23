@@ -7,7 +7,6 @@
 
 ![npm](https://img.shields.io/npm/dw/async-extra)
 ![npm](https://img.shields.io/npm/dm/async-extra)
-![GitHub last commit](https://img.shields.io/github/last-commit/aspiesoft/async-extra)
 
 [![paypal](https://img.shields.io/badge/buy%20me%20a%20coffee-paypal-blue)](https://buymeacoffee.aspiesoft.com/)
 
@@ -25,13 +24,13 @@ The .map() and .forEach() methods of this module also support objects in the loo
 ### Installation
 
 ```shell script
-npm install async-extra
+npm install @aspiesoft/async-extra
 ```
 
 ### Setup
 
 ```js
-const asyncExtra = require('async-extra');
+const asyncExtra = require('@aspiesoft/async-extra');
 ```
 
 ### Usage
