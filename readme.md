@@ -8,7 +8,7 @@
 ![npm](https://img.shields.io/npm/dw/async-extra)
 ![npm](https://img.shields.io/npm/dm/async-extra)
 
-[![paypal](https://img.shields.io/badge/buy%20me%20a%20coffee-paypal-blue)](https://buymeacoffee.aspiesoft.com/from-npm/async-extra)
+[![paypal](https://img.shields.io/badge/buy%20me%20a%20coffee-paypal-blue)](https://buymeacoffee.aspiesoft.com)
 
 Some additional functions to advance the capabilities of asynchronous code in javascript.
 
