@@ -1,4 +1,4 @@
-## Async Extra
+# Async Extra
 
 ![npm](https://img.shields.io/npm/v/async-extra)
 ![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/async-extra)
@@ -21,32 +21,32 @@ This module uses no dependencies, and does not rely on nodejs. It is capable of 
 What about for loops? Why not make an async version of .map()? Check the rest of this readme file, this function was added to the module.
 The .map() and .forEach() methods of this module also support objects in the loop (auto running Object.keys()). Strings, numbers, booleans, etc. will also be converted to be in an array.
 
-### Installation
+## Installation
 
 ```shell script
 npm install @aspiesoft/async-extra
 ```
 
-### Setup
+## Setup
 
 ```js
 const asyncExtra = require('@aspiesoft/async-extra');
 ```
 
-### Usage
+## Usage
 
 ```js
 async function myFunction(){
-    
+
     let options = {
         timeout: 3000,
         checkInterval: 10,
     };
-    
+
     let operation = asyncExtra.function(options, myLongProcess1, myLongProcess2, myLongProcess3);
-    
+
     // do stuff...
-    
+
     await operation.onFinish((result, index, results, finished) => {
         // onFinish loops through each result, and runs this callback.
         // "result" is the result of the current callback.
@@ -59,14 +59,14 @@ async function myFunction(){
     // an alternative to onFinish
     let result = await operation.result();
     console.log(result); // output: {results: [resultArray], finished: true || false, unfinished: number of processes left}
-    
+
     // if you need some results as soon as possible
     result = operation.resultSync();
     console.log(result); // output: same as result(), but a much higher chance for empty results.
     if(result[0]){
         //first process finished
     }
-    
+
     // to simply try and wait for results to finish
     await operation.wait();
 
