@@ -1,6 +1,6 @@
 {
   "name": "@aspiesoft/async-extra",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Some additional functions to advance the capabilities of asynchronous code in javascript.",
   "license": "MIT",
   "author": "AspieSoft",
